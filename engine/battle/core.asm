@@ -548,6 +548,12 @@ HurtByLeechSeedText:
 ; hl: HP pointer
 ; bc (out): total damage
 HandlePoisonBurnLeechSeed_DecreaseOwnHP:
+	ld de, wBattleMonStatus    ; load player's pokemon's status into register
+	ldh a, [hWhoseTurn]        ; load who's turn it is too
+	and a                      ; bitwise AND sets z flag if hWhoseTurn is 0
+	jr z, .next                ; jump if z flag set (player's turn is 0)
+	ld de, wEnemyMonStatus     ; z wasn't set; means it's the enemy's mon
+.next
 	push hl
 	push hl
 	ld bc, $e      ; skip to max HP
@@ -563,7 +569,11 @@ HandlePoisonBurnLeechSeed_DecreaseOwnHP:
 	srl b
 	rr c
 	srl c
+	ld a, [de]                 ; load status from above into register a
+	and (1 << PSN)             ; bitwise & with PSN (3) is 0 if BRN (4) status
+	jr nz, .poison             ; effectively skips next line if PSN
 	srl c         ; c = max HP/16 (assumption: HP < 1024)
+.poison
 	ld a, c
 	and a
 	jr nz, .nonZeroDamage

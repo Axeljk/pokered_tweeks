@@ -164,6 +164,7 @@ AttackAnimationPointers:
 	dw SuperFangAnim
 	dw SlashAnim
 	dw SubstituteAnim
+	dw WillOWispAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -495,6 +496,7 @@ AcidAnim:
 	battle_anim ACID, SUBANIM_1_BLOB_DRIP_ENEMY, 1, 6
 	db -1 ; end
 
+WillOWispAnim:
 EmberAnim:
 	battle_anim EMBER, SUBANIM_1_FLAMES, 1, 6
 	db -1 ; end

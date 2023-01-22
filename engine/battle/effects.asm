@@ -1368,6 +1368,52 @@ MoveWasDisabledText:
 	text_far _MoveWasDisabledText
 	text_end
 
+BurnEffect:
+	call MoveHitTest           ; apply accuracy tests
+	ld a, [wMoveMissed]
+	and a
+	jr nz, .moveMissed
+	call PlayCurrentMoveAnimation
+	ld hl, wEnemyMonStatus
+	ldh a, [hWhoseTurn]
+	and a
+	jr z, .burnEffect
+	ld hl, wBattleMonStatus
+.burnEffect
+	call CheckTargetSubstitute
+	jr nz, .noEffect           ; can't burn a substitute target
+	ld a, [hl]
+	and a
+	jr nz, .noEffect           ; can't burn if already statused
+	ld a, [hli]
+	cp FIRE
+	jr z, .noEffect            ; can't burn a fire-type target
+	ld a, [hld]
+	cp FIRE
+	jr z, .noEffect            ; can't burn a fire-type target
+	ld a, 1 << BRN
+	ld [wEnemyMonStatus], a    ; change status to BRN
+	call HalveAttackDueToBurn  ; halve attack of affected mon
+	ld a, ANIM_C7
+	ld hl, BurnedText
+	jp PrintText
+.moveMissed
+	ld c, 40
+	call DelayFrames
+	jp AttackMissed
+.noEffect
+	ld c, 40
+	call DelayFrames
+	jp PrintDidntAffectText
+
+AttackMissed:
+	ld hl, AttackMissedText
+	call PrintText
+
+AttackMissedtext:
+	text_far _AttackMissedText
+	text_end
+
 PayDayEffect:
 	jpfar PayDayEffect_
 
