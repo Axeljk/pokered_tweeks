@@ -4602,73 +4602,63 @@ JumpToOHKOMoveEffect:
 
 INCLUDE "data/battle/unused_critical_hit_moves.asm"
 
-; determines if attack is a critical hit
-; Azure Heights claims "the fastest pokémon (who are, not coincidentally,
-; among the most popular) tend to CH about 20 to 25% of the time."
+; Determine if attack is a critical hit.
+; Base chance is ([base speed] + 40) / 4.
+; High crit moves is double that.
+; Focus Energy is quadruple that.
+; a: various 8 bit data.
+; b: chance of crit.
+; c: move ID (for high-crit chance moves).
+; de: mon's status (for checking GETTING_PUMPED).
+; hl: various 16bit data.
 CriticalHitTest:
-	xor a
-	ld [wCriticalHitOrOHKO], a
+	xor a                        ; Clever way of setting a to zero.
+	ld [wCriticalHitOrOHKO], a   ; Reset crit flag to zero.
 	ldh a, [hWhoseTurn]
-	and a
-	ld a, [wEnemyMonSpecies]
-	jr nz, .handleEnemy
+	and a                        ; Sets z flag if zero (player's turn).
 	ld a, [wBattleMonSpecies]
-.handleEnemy
-	ld [wd0b5], a
-	call GetMonHeader
-	ld a, [wMonHBaseSpeed]
-	ld b, a
-	srl b                        ; (effective (base speed/2))
-	ldh a, [hWhoseTurn]
-	and a
-	ld hl, wPlayerMovePower
 	ld de, wPlayerBattleStatus2
-	jr z, .calcCriticalHitProbability
-	ld hl, wEnemyMovePower
+	ld hl, wPlayerMovePower      ; Load mon's stuff.
+	jr z, .DamageCheck           ; Jump ahead if z was set earlier.
+	ld a, [wEnemyMonSpecies]     ; Oh shit it's the enemy's turn! Get that data.
 	ld de, wEnemyBattleStatus2
-.calcCriticalHitProbability
-	ld a, [hld]                  ; read base power from RAM
+	ld hl, wEnemyMovePower
+.DamageCheck
+	ld [wd0b5], a                ; Write mon's species into RAM for later.
+	ld a, [hld]                  ; This decreases hl afterwards to move effect.
 	and a
-	ret z                        ; do nothing if zero
-	dec hl
-	ld c, [hl]                   ; read move id
-	ld a, [de]
-	bit GETTING_PUMPED, a        ; test for focus energy
-	jr nz, .focusEnergyUsed      ; bug: using focus energy causes a shift to the right instead of left,
-	                             ; resulting in 1/4 the usual crit chance
-	sla b                        ; (effective (base speed/2)*2)
-	jr nc, .noFocusEnergyUsed
-	ld b, $ff                    ; cap at 255/256
-	jr .noFocusEnergyUsed
-.focusEnergyUsed
-	srl b
-.noFocusEnergyUsed
-	ld hl, HighCriticalMoves     ; table of high critical hit moves
+	ret z                        ; Move does no damage; can't crit. Abort.
+	dec hl                       ; hl now points to move's ID.
+	ld c, [hl]                   ; Copy that into c.
+	call GetMonHeader            ; Fills out the mon's stats in RAM from wd0b5.
+	ld a, [wMonHBaseSpeed]
+	add $28                      ; Base speed + 40.
+	jr c, .GuaranteedCrit        ; Jump if overflow.
+	ld b, a                      ; Store crit chance in b.
+	ld hl, HighCriticalMoves     ; Points at start of table.
 .Loop
-	ld a, [hli]                  ; read move from move table
-	cp c                         ; does it match the move about to be used?
-	jr z, .HighCritical          ; if so, the move about to be used is a high critical hit ratio move
-	inc a                        ; move on to the next move, FF terminates loop
-	jr nz, .Loop                 ; check the next move in HighCriticalMoves
-	srl b                        ; /2 for regular move (effective (base speed / 2))
-	jr .SkipHighCritical         ; continue as a normal move
-.HighCritical
-	sla b                        ; *2 for high critical hit moves
-	jr nc, .noCarry
-	ld b, $ff                    ; cap at 255/256
-.noCarry
-	sla b                        ; *4 for high critical move (effective (base speed/2)*8))
-	jr nc, .SkipHighCritical
-	ld b, $ff
-.SkipHighCritical
-	call BattleRandom            ; generates a random value, in "a"
-	rlc a
-	rlc a
-	rlc a
-	cp b                         ; check a against calculated crit rate
-	ret nc                       ; no critical hit if no borrow
+	ld a, [hli]                  ; Read move ID from table (then inc to next).
+	cp c                         ; Compare ID with move used.
+	jr z, .FocusCheck            ; Jump out of loop if match found.
+	inc a                        ; Last "move" is $FF. Inc overflows (set flag).
+	jr nz, .Loop                 ; Continue loop if zero flag wasn't set.
+	srl b                        ; Normal moves have half the crit chance.
+.FocusCheck
+	ld a, [de]
+	bit GETTING_PUMPED, a        ; Test for focus energy.
+	jr z, .Focused
+	srl b                        ; Cut crit chance in half if not focused.
+	jr .TestCrit                 ; Skip next label since mon wasn't focused.
+.Focused
+	sla b                        ; Doubles chance.
+	jr c, .GuaranteedCrit        ; Jump if overflow.
+.TestCrit
+	call BattleRandom            ; Generates random value (0-255?) in a.
+	cp b                         ; Check a against crit chance.
+	ret nc                       ; c flag not set if b was smaller (no crit).
+.GuaranteedCrit
 	ld a, $1
-	ld [wCriticalHitOrOHKO], a   ; set critical hit flag
+	ld [wCriticalHitOrOHKO], a   ; Set crit flag.
 	ret
 
 INCLUDE "data/battle/critical_hit_moves.asm"

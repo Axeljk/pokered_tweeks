@@ -115,7 +115,7 @@ Moves:
 	move MIMIC,        MIMIC_EFFECT,                 0, NORMAL,       100, 10
 	move SCREECH,      DEFENSE_DOWN2_EFFECT,         0, NORMAL,        85, 20
 	move DOUBLE_TEAM,  EVASION_UP1_EFFECT,           0, NORMAL,       100, 15
-	move RECOVER,      HEAL_EFFECT,                  0, NORMAL,       100, 10
+	move RECOVER,      HEAL_EFFECT,                  0, PSYCHIC_TYPE, 100, 10
 	move HARDEN,       DEFENSE_UP1_EFFECT,           0, NORMAL,       100, 30
 	move MINIMIZE,     EVASION_UP1_EFFECT,           0, NORMAL,       100, 20
 	move SMOKESCREEN,  ACCURACY_DOWN1_EFFECT,        0, FIRE,         100, 20
