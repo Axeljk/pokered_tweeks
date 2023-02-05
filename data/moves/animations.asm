@@ -165,6 +165,16 @@ AttackAnimationPointers:
 	dw SlashAnim
 	dw SubstituteAnim
 	dw WillOWispAnim
+	dw PowderSnowAnim
+	dw BuzzAnim
+	dw BugBiteAnim
+	dw XScissorAnim
+	dw NightmareAnim
+	dw HexAnim
+	dw PoltergiestAnim
+	dw RockTombAnim
+	dw FakeOutAnim
+	dw RoostAnim
 	dw StruggleAnim
 	assert_table_length NUM_ATTACKS
 	dw ShowPicAnim
@@ -233,6 +243,16 @@ ZigZagScreenAnim:
 	battle_anim NO_MOVE, SE_WAVY_SCREEN
 	db -1 ; end
 
+PowderSnowAnim:
+BuzzAnim:
+BugBiteAnim:
+XScissorAnim:
+NightmareAnim:
+HexAnim:
+PoltergiestAnim:
+RockTombAnim:
+FakeOutAnim:
+RoostAnim:
 PoundAnim:
 StruggleAnim:
 	battle_anim POUND, SUBANIM_0_STAR_TWICE, 0, 8

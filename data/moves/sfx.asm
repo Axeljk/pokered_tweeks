@@ -166,6 +166,16 @@ MoveSoundTable:
 	db SFX_NOT_VERY_EFFECTIVE, $01, $ff ; SLASH
 	db SFX_BATTLE_2C,          $d8, $04 ; SUBSTITUTE
 	db SFX_BATTLE_19,          $10, $a0 ; WILL_O_WISP
+	db SFX_POUND,              $00, $80 ; POWDER_SNOW
+	db SFX_POUND,              $00, $80 ; BUZZ
+	db SFX_POUND,              $00, $80 ; BUG_BITE
+	db SFX_POUND,              $00, $80 ; X_SCISSOR
+	db SFX_POUND,              $00, $80 ; NIGHTMARE
+	db SFX_POUND,              $00, $80 ; HEX
+	db SFX_POUND,              $00, $80 ; POLTERGEIST
+	db SFX_POUND,              $00, $80 ; ROCK_TOMB
+	db SFX_POUND,              $00, $80 ; FAKE_OUT
+	db SFX_POUND,              $00, $80 ; ROOST
 	db SFX_BATTLE_0B,          $00, $80 ; STRUGGLE
 	assert_table_length NUM_ATTACKS
 	db SFX_BATTLE_0B,          $00, $80

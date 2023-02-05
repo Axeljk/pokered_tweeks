@@ -171,7 +171,17 @@
 	const SLASH        ; a3
 	const SUBSTITUTE   ; a4
 	const WILL_O_WISP  ; a5
-	const STRUGGLE     ; a6
+	const POWDER_SNOW  ; a6
+	const BUZZ         ; a7
+	const BUG_BITE     ; a8
+	const X_SCISSOR    ; a9
+	const NIGHTMARE    ; aa
+	const HEX          ; ab
+	const POLTERGEIST  ; ac
+	const ROCK_TOMB    ; ad
+	const FAKE_OUT     ; ae
+	const ROOST        ; af
+	const STRUGGLE     ; b0
 DEF NUM_ATTACKS EQU const_value - 1
 
 	; Moves do double duty as animation identifiers.
