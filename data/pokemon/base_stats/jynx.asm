@@ -10,16 +10,16 @@
 	INCBIN "gfx/pokemon/front/jynx.pic", 0, 1 ; sprite dimensions
 	dw JynxPicFront, JynxPicBack
 
-	db POUND, LOVELY_KISS, NO_MOVE, NO_MOVE ; level 1 learnset
+	db POUND, SING, NO_MOVE, NO_MOVE ; level 1 learnset
 	db GROWTH_MEDIUM_FAST ; growth rate
 
 	; tm/hm learnset
-	tmhm MEGA_PUNCH,   MEGA_KICK,    TOXIC,        BODY_SLAM,    TAKE_DOWN,    \
-	     DOUBLE_EDGE,  BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     \
-	     HYPER_BEAM,   SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
+	tmhm MEGA_PUNCH,   MEGA_KICK,    BODY_SLAM,    TAKE_DOWN,    DOUBLE_EDGE,  \
+	     BUBBLEBEAM,   WATER_GUN,    ICE_BEAM,     BLIZZARD,     HYPER_BEAM,   \
+	     PAY_DAY,      SUBMISSION,   COUNTER,      SEISMIC_TOSS, RAGE,         \
 	     PSYCHIC_M,    TELEPORT,     MIMIC,        DOUBLE_TEAM,  REFLECT,      \
-	     BIDE,         METRONOME,    SKULL_BASH,   REST,         PSYWAVE,      \
-	     SUBSTITUTE
+	     BIDE,         METRONOME,    SWIFT,        DREAM_EATER,  REST,         \
+	     PSYWAVE,      TRI_ATTACK,   SUBSTITUTE
 	; end
 
 	db 0 ; padding

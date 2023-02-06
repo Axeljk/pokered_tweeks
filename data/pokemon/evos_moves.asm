@@ -407,12 +407,16 @@ LaprasEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 16, SING
-	db 20, MIST
-	db 25, BODY_SLAM
-	db 31, CONFUSE_RAY
-	db 38, ICE_BEAM
-	db 46, HYDRO_PUMP
+	db  8, SING
+	db 16, POWDER_SNOW
+	db 20, HEADBUTT
+	db 24, MIST
+	db 28, CONFUSE_RAY
+	db 32, ICE_BEAM
+	db 36, BODY_SLAM
+	db 40, HAZE
+	db 44, HYDRO_PUMP
+	db 48, BLIZZARD
 	db 0
 
 ArcanineEvosMoves:
@@ -836,10 +840,15 @@ SeelEvosMoves:
 	db EV_LEVEL, 34, DEWGONG
 	db 0
 ; Learnset
-	db 30, GROWL
-	db 35, AURORA_BEAM
-	db 40, REST
-	db 45, TAKE_DOWN
+	db  5, GROWL
+	db 10, POWDER_SNOW
+	db 15, WATER_GUN
+	db 20, BITE
+	db 25, WITHDRAW
+	db 30, AURORA_BEAM
+	db 35, REST
+	db 40, TAKE_DOWN
+	db 45, MIST
 	db 50, ICE_BEAM
 	db 0
 
@@ -967,12 +976,17 @@ JynxEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 18, LICK
-	db 23, DOUBLESLAP
-	db 31, ICE_PUNCH
-	db 39, BODY_SLAM
-	db 47, THRASH
+	db 12, LICK
+	db 17, POWDER_SNOW
+	db 21, DOUBLESLAP
+	db 28, MIST
+	db 32, CONFUSION
+	db 36, ICE_PUNCH
+	db 41, BODY_SLAM
+	db 46, LOVELY_KISS
+	db 52, PSYCHIC
 	db 58, BLIZZARD
+	db 63, THRASH
 	db 0
 
 MoltresEvosMoves:
@@ -1448,10 +1462,15 @@ DewgongEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 30, GROWL
-	db 35, AURORA_BEAM
-	db 44, REST
-	db 50, TAKE_DOWN
+	db  5, GROWL
+	db 10, POWDER_SNOW
+	db 15, WATER_GUN
+	db 20, BITE
+	db 26, WITHDRAW
+	db 32, AURORA_BEAM
+	db 38, REST
+	db 44, TAKE_DOWN
+	db 50, MIST
 	db 56, ICE_BEAM
 	db 0
 
