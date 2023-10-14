@@ -451,11 +451,13 @@ ShellderEvosMoves:
 	db EV_ITEM, WATER_STONE, 1, CLOYSTER
 	db 0
 ; Learnset
-	db 18, SUPERSONIC
-	db 23, CLAMP
-	db 30, AURORA_BEAM
-	db 39, LEER
-	db 50, ICE_BEAM
+	db  8, LEER
+	db 13, WATER_GUN
+	db 17, LICK
+	db 21, SAND_ATTACK
+	db 26, SUPERSONIC
+	db 31, CLAMP
+	db 35, DIG
 	db 0
 
 TentacoolEvosMoves:
@@ -984,7 +986,7 @@ JynxEvosMoves:
 	db 36, ICE_PUNCH
 	db 41, BODY_SLAM
 	db 46, LOVELY_KISS
-	db 52, PSYCHIC
+	db 52, PSYCHIC_M
 	db 58, BLIZZARD
 	db 63, THRASH
 	db 0
@@ -1638,7 +1640,10 @@ CloysterEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 50, SPIKE_CANNON
+	db 25, SPIKE_CANNON
+	db 30, WITHDRAW
+	db 35, CLAMP
+	db 40, ICE_BEAM
 	db 0
 
 MissingNo8CEvosMoves:
