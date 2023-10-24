@@ -10,7 +10,22 @@ LoadWildData::
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a       ; hl now points to wild data for current map
+	ld bc, $15
 	ld a, [hli]
+	cp $ff
+	jr nz, .NoAlternates
+	ld a, [wPlayerID]
+	and $3
+	cp $0
+	jr z, .first
+	cp $1
+	jr nz, .done
+	add hl, bc
+.first
+	add hl, bc
+.done
+	ld a, [hli]
+.NoAlternates
 	ld [wGrassRate], a
 	and a
 	jr z, .NoGrassData ; if no grass data, skip to surfing data

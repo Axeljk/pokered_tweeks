@@ -1394,7 +1394,7 @@ BurnEffect:
 	ld a, 1 << BRN
 	ld [wEnemyMonStatus], a    ; change status to BRN
 	call HalveAttackDueToBurn  ; halve attack of affected mon
-	ld a, ANIM_C7
+	ld a, SHAKE_SCREEN_ANIM
 	ld hl, BurnedText
 	jp PrintText
 .moveMissed

@@ -126,6 +126,20 @@ MACRO end_grass_wildmons
 	ENDC
 ENDM
 
+MACRO def_alt_wildmons
+	db $ff
+ENDM
+
+MACRO end_alt_wildmons
+	IF CURRENT_GRASS_WILDMONS_RATE == 0
+		ASSERT 1 == @ - {CURRENT_GRASS_WILDMONS_LABEL}, \
+			"def_grass_wildmons {d:CURRENT_GRASS_WILDMONS_RATE}: expected 1 byte"
+	ELSE
+		ASSERT WILDDATA_LENGTH == @ - {CURRENT_GRASS_WILDMONS_LABEL}, \
+			"def_grass_wildmons {d:CURRENT_GRASS_WILDMONS_RATE}: expected {d:WILDDATA_LENGTH} bytes"
+	ENDC
+ENDM
+
 MACRO def_water_wildmons
 ;\1: encounter rate
 	DEF CURRENT_WATER_WILDMONS_RATE = \1
