@@ -74,7 +74,7 @@ Moves:
 	move BUBBLEBEAM,   SPEED_DOWN_SIDE_EFFECT,      65, WATER,        100, 20
 	move AURORA_BEAM,  ATTACK_DOWN_SIDE_EFFECT,     65, ICE,          100, 20
 	move HYPER_BEAM,   HYPER_BEAM_EFFECT,          150, DRAGON,        90,  5
-	move PECK,         NO_ADDITIONAL_EFFECT,        35, FLYING,       100, 35
+	move PECK,         NO_ADDITIONAL_EFFECT,        30, FLYING,       100, 35
 	move DRILL_PECK,   NO_ADDITIONAL_EFFECT,        85, FLYING,       100, 15
 	move SUBMISSION,   RECOIL_EFFECT,              120, FIGHTING,      90,  5
 	move LOW_KICK,     FLINCH_SIDE_EFFECT2,         30, FIGHTING,     100, 35

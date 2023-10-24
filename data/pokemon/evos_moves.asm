@@ -597,7 +597,8 @@ PidgeyEvosMoves:
 	db EV_LEVEL, 18, PIDGEOTTO
 	db 0
 ; Learnset
-	db 5, SAND_ATTACK
+	db  5, GUST
+	db  8, SAND_ATTACK
 	db 12, QUICK_ATTACK
 	db 19, WHIRLWIND
 	db 28, WING_ATTACK
@@ -728,11 +729,17 @@ PsyduckEvosMoves:
 	db EV_LEVEL, 33, GOLDUCK
 	db 0
 ; Learnset
-	db 28, TAIL_WHIP
-	db 31, DISABLE
-	db 36, CONFUSION
-	db 43, FURY_SWIPES
-	db 52, HYDRO_PUMP
+	db  8, TAIL_WHIP
+	db 11, DISABLE
+	db 13, BUBBLE
+	db 17, FURY_SWIPES
+	db 19, HYPNOSIS
+	db 22, CONFUSION
+	db 24, WATER_GUN
+	db 28, HEADBUTT
+	db 31, AMNESIA
+	db 36, PSYBEAM
+	db 42, HYDRO_PUMP
 	db 0
 
 DrowzeeEvosMoves:
@@ -770,13 +777,18 @@ MagmarEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 36, LEER
-	db 39, CONFUSE_RAY
-	db 43, FIRE_PUNCH
-	db 48, SMOKESCREEN
-	db 52, SMOG
-	db 55, FLAMETHROWER
-	db 0
+	db 10, LEER
+	db 14, SMOG
+	db 20, FIRE_SPIN
+	db 28, SMOKESCREEN
+	db 32, CONFUSE_RAY
+	db 36, POISON_GAS
+	db 40, FIRE_PUNCH
+	db 44, MEGA_PUNCH
+	db 50, WILL_O_WISP
+	db 54, SLUDGE
+	db 58, FLAMETHROWER
+	db 62, HYPER_BEAM
 
 MissingNo34EvosMoves:
 ; Evolutions
@@ -788,12 +800,17 @@ ElectabuzzEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 34, THUNDERSHOCK
-	db 37, SCREECH
-	db 42, THUNDERPUNCH
-	db 49, LIGHT_SCREEN
-	db 54, THUNDER
-	db 0
+	db 11, KARATE_CHOP
+	db 17, THUNDERSHOCK
+	db 23, COMET_PUNCH
+	db 27, SCREECH
+	db 31, THUNDER_WAVE
+	db 36, THUNDERPUNCH
+	db 40, FOCUS_ENERGY
+	db 44, LIGHT_SCREEN
+	db 51, DIZZY_PUNCH
+	db 57, THUNDER
+	db 61, SUBMISSION
 
 MagnetonEvosMoves:
 ; Evolutions
@@ -899,24 +916,35 @@ FarfetchdEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 7, LEER
-	db 15, FURY_ATTACK
+	db  7, LEER
+	db 12, FURY_SWIPES
+	db 15, WING_ATTACK
+	db 20, DOUBLE_KICK
 	db 23, SWORDS_DANCE
-	db 31, AGILITY
-	db 39, SLASH
+	db 28, SLASH
+	db 31, MIRROR_MOVE
+	db 35, ROLLING_KICK
+	db 37, AGILITY
+	db 42, HI_JUMP_KICK
 	db 0
 
 VenonatEvosMoves:
 ; Evolutions
-	db EV_LEVEL, 31, VENOMOTH
+	db EV_LEVEL, 26, VENOMOTH
 	db 0
 ; Learnset
-	db 24, POISONPOWDER
-	db 27, LEECH_LIFE
-	db 30, STUN_SPORE
-	db 35, PSYBEAM
-	db 38, SLEEP_POWDER
-	db 43, PSYCHIC_M
+	db  9, POISONPOWDER
+	db 14, LEECH_LIFE
+	db 17, SUPERSONIC
+	db 22, CONFUSION
+	db 25, STUN_SPORE
+	db 29, BUZZ
+	db 33, HEADBUTT
+	db 37, PSYBEAM
+	db 39, SLEEP_POWDER
+	db 43, BUG_BITE
+	db 45, REFLECT
+	db 49, PSYCHIC_M
 	db 0
 
 DragoniteEvosMoves:
@@ -1452,12 +1480,18 @@ VenomothEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 24, POISONPOWDER
-	db 27, LEECH_LIFE
-	db 30, STUN_SPORE
-	db 38, PSYBEAM
+	db  5, POISONPOWDER
+	db 11, LEECH_LIFE
+	db 14, SUPERSONIC
+	db 20, CONFUSION
+	db 23, STUN_SPORE
+	db 30, BUZZ
+	db 33, WING_ATTACK
+	db 39, PSYBEAM
 	db 43, SLEEP_POWDER
-	db 50, PSYCHIC_M
+	db 45, BUG_BITE
+	db 49, REFLECT
+	db 54, PSYCHIC_M
 	db 0
 
 DewgongEvosMoves:
@@ -1536,11 +1570,17 @@ GolduckEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 28, TAIL_WHIP
-	db 31, DISABLE
-	db 39, CONFUSION
-	db 48, FURY_SWIPES
-	db 59, HYDRO_PUMP
+	db  8, TAIL_WHIP
+	db 11, DISABLE
+	db 13, BUBBLE
+	db 17, FURY_SWIPES
+	db 19, HYPNOSIS
+	db 22, CONFUSION
+	db 24, WATER_GUN
+	db 28, HEADBUTT
+	db 31, AMNESIA
+	db 38, PSYBEAM
+	db 45, HYDRO_PUMP
 	db 0
 
 HypnoEvosMoves:
@@ -1741,7 +1781,8 @@ PidgeottoEvosMoves:
 	db EV_LEVEL, 36, PIDGEOT
 	db 0
 ; Learnset
-	db 5, SAND_ATTACK
+	db  5, GUST
+	db  8, SAND_ATTACK
 	db 12, QUICK_ATTACK
 	db 21, WHIRLWIND
 	db 31, WING_ATTACK
@@ -1753,7 +1794,8 @@ PidgeotEvosMoves:
 ; Evolutions
 	db 0
 ; Learnset
-	db 5, SAND_ATTACK
+	db  5, GUST
+	db  8, SAND_ATTACK
 	db 12, QUICK_ATTACK
 	db 21, WHIRLWIND
 	db 31, WING_ATTACK
